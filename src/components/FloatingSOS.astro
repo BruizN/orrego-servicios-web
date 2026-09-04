@@ -1,35 +1,153 @@
 ---
-import { AlertTriangle } from '@lucide/astro';
+import { AlertTriangle, X, ArrowRight, CheckCircle2 } from '@lucide/astro';
 ---
 
-<!-- 
-  Botón flotante SOS
-  En el MVP inicial solo abrirá un modal (que armaremos en el siguiente paso),
-  pero lo dejamos anclado en la esquina inferior derecha.
--->
+<!-- Botón flotante SOS -->
 <button 
-  id="sos-button"
-  class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full bg-accent-red text-white shadow-[0_0_20px_rgba(239,68,68,0.6)] hover:scale-110 hover:bg-red-600 transition-all group animate-pulse hover:animate-none"
+  id="sos-trigger"
+  class="fixed bottom-6 right-6 z-40 flex items-center justify-center w-16 h-16 rounded-full bg-accent-red text-white shadow-[0_0_20px_rgba(239,68,68,0.6)] hover:scale-110 hover:bg-red-600 transition-all group animate-pulse hover:animate-none"
   aria-label="Emergencia 24/7"
 >
   <AlertTriangle class="w-8 h-8 group-hover:scale-110 transition-transform" />
-  
-  <!-- Tooltip emergente al hacer hover -->
   <span class="absolute right-20 bg-dark-800 text-white text-sm font-bold px-4 py-2 rounded-lg border border-accent-red/30 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
     URGENCIA 24/7
   </span>
 </button>
 
-<!-- 
-  Script nativo para manejar el click
-  (Preparado para abrir el modal en el próximo PR)
--->
+<!-- Modal Overlay (Oculto por defecto) -->
+<div id="sos-modal-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+  
+  <!-- Modal Content -->
+  <div class="bg-dark-950 border border-white/10 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300" id="sos-modal-card">
+    
+    <!-- Cabecera -->
+    <div class="bg-accent-red/10 border-b border-accent-red/20 p-4 flex justify-between items-center">
+      <div class="flex items-center gap-2 text-accent-red">
+        <AlertTriangle class="w-5 h-5" />
+        <h3 class="font-bold">Emergencia 24/7</h3>
+      </div>
+      <button id="sos-close" class="text-slate-400 hover:text-white transition-colors">
+        <X class="w-5 h-5" />
+      </button>
+    </div>
+
+    <!-- Formularios (Pasos) -->
+    <div class="p-6">
+      
+      <!-- Paso 1: Tipo de Falla -->
+      <div id="sos-step-1" class="block">
+        <h4 class="text-lg font-semibold text-white mb-4">¿Qué tipo de emergencia tienes?</h4>
+        <div class="grid grid-cols-1 gap-3">
+          <button class="sos-falla-btn w-full text-left px-4 py-3 rounded-xl border border-white/10 hover:bg-white/5 hover:border-accent-orange transition-all text-slate-200" data-falla="Inundación">💧 Inundación / Fuga masiva de agua</button>
+          <button class="sos-falla-btn w-full text-left px-4 py-3 rounded-xl border border-white/10 hover:bg-white/5 hover:border-accent-orange transition-all text-slate-200" data-falla="Cortocircuito">⚡ Cortocircuito / Sin energía</button>
+          <button class="sos-falla-btn w-full text-left px-4 py-3 rounded-xl border border-white/10 hover:bg-white/5 hover:border-accent-orange transition-all text-slate-200" data-falla="Fuga de gas">🔥 Fuga de Gas (Olor intenso)</button>
+          <button class="sos-falla-btn w-full text-left px-4 py-3 rounded-xl border border-white/10 hover:bg-white/5 hover:border-accent-orange transition-all text-slate-200" data-falla="Colapso estructural">🏚️ Colapso estructural menor</button>
+        </div>
+      </div>
+
+      <!-- Paso 2: Datos de Contacto -->
+      <div id="sos-step-2" class="hidden">
+        <h4 class="text-lg font-semibold text-white mb-4">Datos de contacto rápidos</h4>
+        <form id="sos-form" class="space-y-4">
+          <div>
+            <label for="sos-phone" class="block text-sm font-medium text-slate-400 mb-1">Teléfono Móvil</label>
+            <input type="tel" id="sos-phone" placeholder="+56 9 XXXX XXXX" required class="w-full bg-dark-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-red transition-colors" />
+          </div>
+          <div>
+            <label for="sos-commune" class="block text-sm font-medium text-slate-400 mb-1">Comuna (Ej: Providencia)</label>
+            <input type="text" id="sos-commune" placeholder="Ingresa tu comuna" required class="w-full bg-dark-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-red transition-colors" />
+          </div>
+          <button type="submit" class="w-full flex items-center justify-center gap-2 bg-accent-red hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg transition-all mt-4">
+            Enviar Alerta por WhatsApp
+            <ArrowRight class="w-5 h-5" />
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <script>
-  const sosButton = document.getElementById('sos-button');
-  if (sosButton) {
-    sosButton.addEventListener('click', () => {
-      console.log('Abrir modal SOS 24/7...');
-      // Aquí agregaremos la lógica del modal en el siguiente paso
+  // Importamos el servicio
+  // Astro permite importar módulos TS/JS normales directamente en las etiquetas script del cliente.
+  import { sendSOSEmergency } from '../services/whatsapp';
+
+  // Elementos DOM
+  const overlay = document.getElementById('sos-modal-overlay');
+  const card = document.getElementById('sos-modal-card');
+  const trigger = document.getElementById('sos-trigger');
+  const closeBtn = document.getElementById('sos-close');
+  
+  const step1 = document.getElementById('sos-step-1');
+  const step2 = document.getElementById('sos-step-2');
+  const form = document.getElementById('sos-form');
+  
+  // Estado temporal
+  let selectedFailure = '';
+
+  // --- Lógica del Modal (Apertura y Cierre) ---
+  const openModal = () => {
+    overlay?.classList.remove('hidden');
+    // Pequeño timeout para permitir que se aplique el display antes de animar opacidad
+    setTimeout(() => {
+      overlay?.classList.remove('opacity-0');
+      card?.classList.remove('scale-95');
+    }, 10);
+    resetModal();
+  };
+
+  const closeModal = () => {
+    overlay?.classList.add('opacity-0');
+    card?.classList.add('scale-95');
+    setTimeout(() => {
+      overlay?.classList.add('hidden');
+    }, 300);
+  };
+
+  trigger?.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+  
+  // Cerrar al clickear fuera del modal
+  overlay?.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  // --- Lógica de Pasos (Wizard) ---
+  const resetModal = () => {
+    step1?.classList.remove('hidden');
+    step2?.classList.add('hidden');
+    selectedFailure = '';
+    if (form) (form as HTMLFormElement).reset();
+  };
+
+  const failureButtons = document.querySelectorAll('.sos-falla-btn');
+  failureButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const target = e.currentTarget as HTMLButtonElement;
+      selectedFailure = target.getAttribute('data-falla') || 'Desconocido';
+      
+      // Avanzar al paso 2
+      step1?.classList.add('hidden');
+      step2?.classList.remove('hidden');
     });
-  }
+  });
+
+  // --- Envío de Formulario ---
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const phoneInput = document.getElementById('sos-phone') as HTMLInputElement;
+    const communeInput = document.getElementById('sos-commune') as HTMLInputElement;
+    
+    // Llamar al servicio que actualmente manda a WhatsApp 
+    // y en el futuro mandará a FastAPI
+    sendSOSEmergency({
+      failureType: selectedFailure,
+      phone: phoneInput.value,
+      commune: communeInput.value
+    });
+
+    closeModal();
+  });
 </script>
