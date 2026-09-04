@@ -1,9 +1,10 @@
 ---
 import '../styles/global.css';
+import FloatingSOS from '../components/FloatingSOS.astro';
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -12,7 +13,8 @@ import '../styles/global.css';
 		<meta name="generator" content={Astro.generator} />
 		<title>Orrego Servicios | Experto en Obras y Climatización</title>
 	</head>
-	<body>
+	<body class="relative">
 		<slot />
+		<FloatingSOS />
 	</body>
 </html>
