@@ -1,5 +1,6 @@
 ---
 import { AlertTriangle, X, ArrowRight, CheckCircle2 } from '@lucide/astro';
+import { COMUNAS_RM } from '../utils/comunas';
 ---
 
 <!-- Botón flotante SOS -->
@@ -54,8 +55,13 @@ import { AlertTriangle, X, ArrowRight, CheckCircle2 } from '@lucide/astro';
             <input type="tel" id="sos-phone" placeholder="+56 9 XXXX XXXX" required class="w-full bg-dark-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-red transition-colors" />
           </div>
           <div>
-            <label for="sos-commune" class="block text-sm font-medium text-slate-400 mb-1">Comuna (Ej: Providencia)</label>
-            <input type="text" id="sos-commune" placeholder="Ingresa tu comuna" required class="w-full bg-dark-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-red transition-colors" />
+            <label for="sos-commune" class="block text-sm font-medium text-slate-400 mb-1">Comuna *</label>
+            <select id="sos-commune" required class="w-full bg-dark-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-red transition-colors">
+              <option value="" disabled selected>Selecciona tu comuna...</option>
+              {COMUNAS_RM.map((comuna) => (
+                <option value={comuna}>{comuna}</option>
+              ))}
+            </select>
           </div>
           <button type="submit" class="w-full flex items-center justify-center gap-2 bg-accent-red hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg transition-all mt-4">
             Enviar Alerta por WhatsApp
@@ -138,7 +144,7 @@ import { AlertTriangle, X, ArrowRight, CheckCircle2 } from '@lucide/astro';
     e.preventDefault();
     
     const phoneInput = document.getElementById('sos-phone') as HTMLInputElement;
-    const communeInput = document.getElementById('sos-commune') as HTMLInputElement;
+    const communeInput = document.getElementById('sos-commune') as HTMLSelectElement;
     
     // Llamar al servicio que actualmente manda a WhatsApp 
     // y en el futuro mandará a FastAPI
