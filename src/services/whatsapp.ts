@@ -4,7 +4,7 @@
  */
 
 // Teléfono de Claudio (formato internacional sin el +). Ejemplo temporal.
-const CLAUDIO_PHONE = '56912345678'; 
+const CLAUDIO_PHONE = '56949086102'; 
 
 export interface SOSData {
   failureType: string;
