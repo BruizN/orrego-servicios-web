@@ -1,11 +1,14 @@
 ---
-import { Droplet } from '@lucide/astro';
+import { Droplet, ArrowLeft } from '@lucide/astro';
+
+const pathname = Astro.url.pathname.replace(/\/$/, '');
+const isHome = pathname === '' || pathname === '/';
 ---
 
 <header class="fixed w-full top-0 z-50 bg-dark-950/80 backdrop-blur-md border-b border-white/10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
-      <a href="#" class="flex items-center gap-3 group">
+      <a href="/" class="flex items-center gap-3 group">
         <div class="bg-accent-orange p-2.5 rounded-xl shadow-[0_0_15px_rgba(255,87,34,0.3)] group-hover:scale-105 transition-transform">
           <Droplet class="w-6 h-6 text-white" />
         </div>
@@ -19,14 +22,32 @@ import { Droplet } from '@lucide/astro';
         </div>
       </a>
       
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="#servicios" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Servicios</a>
-        <a href="#pilares" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Pilares Técnicos</a>
-        <a href="#b2b" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Empresas & B2B</a>
-        <a href="#cotizar" class="px-5 py-2.5 rounded-full bg-accent-orange text-white font-semibold hover:bg-orange-600 transition-all shadow-[0_0_15px_rgba(255,87,34,0.3)] hover:shadow-[0_0_20px_rgba(255,87,34,0.5)] text-sm">
-          Cotizar Ahora
-        </a>
-      </nav>
+      {isHome ? (
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="/#servicios" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Servicios</a>
+          <a href="/#pilares" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Pilares Técnicos</a>
+          <a href="/#b2b" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Empresas & B2B</a>
+          <a href="/#cotizar" class="px-5 py-2.5 rounded-full bg-accent-orange text-white font-semibold hover:bg-orange-600 transition-all shadow-[0_0_15px_rgba(255,87,34,0.3)] hover:shadow-[0_0_20px_rgba(255,87,34,0.5)] text-sm">
+            Cotizar Ahora
+          </a>
+        </nav>
+      ) : (
+        <div class="flex items-center gap-4">
+          <a 
+            href="/" 
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-accent-cyan/10 hover:bg-accent-cyan text-accent-cyan hover:text-dark-950 border border-accent-cyan/30 text-sm font-bold transition-all shadow-[0_0_15px_rgba(0,229,255,0.2)] group"
+          >
+            <ArrowLeft class="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <span>Volver al Inicio</span>
+          </a>
+          <a 
+            href="/#cotizar" 
+            class="hidden sm:inline-flex px-5 py-2.5 rounded-full bg-accent-orange text-white font-semibold hover:bg-orange-600 transition-all shadow-[0_0_15px_rgba(255,87,34,0.3)] text-sm"
+          >
+            Cotizar
+          </a>
+        </div>
+      )}
     </div>
   </div>
 </header>
