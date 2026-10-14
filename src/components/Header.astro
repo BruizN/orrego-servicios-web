@@ -1,23 +1,29 @@
 ---
-import { Wrench } from '@lucide/astro';
+import { Droplet } from '@lucide/astro';
 ---
 
 <header class="fixed w-full top-0 z-50 bg-dark-950/80 backdrop-blur-md border-b border-white/10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
-      <div class="flex items-center gap-2">
-        <div class="bg-accent-orange p-2 rounded-lg">
-          <Wrench class="w-6 h-6 text-white" />
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="bg-accent-orange p-2.5 rounded-xl shadow-[0_0_15px_rgba(255,87,34,0.3)] group-hover:scale-105 transition-transform">
+          <Droplet class="w-6 h-6 text-white" />
         </div>
-        <span class="text-xl font-bold tracking-tight text-white">
-          Orrego<span class="text-accent-cyan">Servicios</span>
-        </span>
-      </div>
+        <div class="flex flex-col">
+          <span class="text-2xl font-black tracking-tight text-white leading-none">
+            KoFix<span class="text-accent-cyan">Red</span>
+          </span>
+          <span class="text-[10px] text-slate-400 font-semibold tracking-wider uppercase mt-1">
+            Ingeniería Sanitaria
+          </span>
+        </div>
+      </a>
       
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#servicios" class="text-slate-300 hover:text-white transition-colors">Servicios</a>
-        <a href="#nosotros" class="text-slate-300 hover:text-white transition-colors">Experiencia</a>
-        <a href="#cotizar" class="px-5 py-2.5 rounded-full bg-accent-orange text-white font-medium hover:bg-orange-600 transition-all shadow-[0_0_15px_rgba(255,87,34,0.3)]">
+        <a href="#servicios" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Servicios</a>
+        <a href="#pilares" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Pilares Técnicos</a>
+        <a href="#b2b" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Empresas & B2B</a>
+        <a href="#cotizar" class="px-5 py-2.5 rounded-full bg-accent-orange text-white font-semibold hover:bg-orange-600 transition-all shadow-[0_0_15px_rgba(255,87,34,0.3)] hover:shadow-[0_0_20px_rgba(255,87,34,0.5)] text-sm">
           Cotizar Ahora
         </a>
       </nav>

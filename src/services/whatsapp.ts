@@ -34,7 +34,7 @@ export function sendSOSEmergency(data: SOSData): void {
   window.open(whatsappUrl, '_blank');
 
   // TODO Backend: Cuando FastAPI esté listo:
-  // fetch('https://api.orregoservicios.cl/v1/urgencies', {
+  // fetch('https://api.kofixred.cl/v1/urgencies', {
   //   method: 'POST',
   //   headers: { 'Content-Type': 'application/json' },
   //   body: JSON.stringify(data)

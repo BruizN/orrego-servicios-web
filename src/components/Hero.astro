@@ -1,33 +1,33 @@
 ---
-import { ShieldCheck, Zap, Droplets, ChevronRight } from '@lucide/astro';
+import { ShieldCheck, Droplets, Search, ChevronRight } from '@lucide/astro';
 ---
 
-<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+<section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
   <!-- Decorative background elements -->
-  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-cyan/10 rounded-full blur-[100px]"></div>
-  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-orange/10 rounded-full blur-[100px]"></div>
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-cyan/10 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-orange/10 rounded-full blur-[120px] pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       
       <!-- Copy & Call to action -->
       <div class="text-left space-y-8">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-accent-cyan text-sm font-medium">
-          <ShieldCheck class="w-4 h-4" />
-          <span>Ingeniería y Construcción Certificada</span>
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-accent-cyan text-xs sm:text-sm font-semibold">
+          <ShieldCheck class="w-4 h-4 text-accent-cyan flex-shrink-0" />
+          <span>Ingeniería en Agua Potable & Redes Sanitarias</span>
         </div>
         
-        <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
-          Soluciones técnicas con <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-orange-400">garantía real</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          Diagnóstico de precisión y soluciones sanitarias con <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-orange-400">garantía real</span>
         </h1>
         
         <p class="text-lg text-slate-300 max-w-xl leading-relaxed">
-          Especialistas en obras menores, redes eléctricas, sanitarias y climatización. Atendemos hogares y empresas con altos estándares de seguridad y facturación formal.
+          Especialistas en redes de agua potable (PPR, PEX, cobre), sistemas hidroneumáticos, alcantarillado y detección técnica de fugas. Atendemos hogares, condominios y empresas con altos estándares de ingeniería y facturación formal.
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+        <div class="flex flex-col sm:flex-row gap-4 pt-2">
           <a href="#cotizar" class="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-xl bg-accent-orange text-white font-bold hover:bg-orange-600 transition-all shadow-[0_0_20px_rgba(255,87,34,0.4)] hover:shadow-[0_0_30px_rgba(255,87,34,0.6)]">
-            Solicitar Evaluación
+            Solicitar Evaluación Técnica
             <ChevronRight class="w-5 h-5" />
           </a>
           <a href="#servicios" class="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-xl bg-white/5 text-white font-medium border border-white/10 hover:bg-white/10 transition-all backdrop-blur-sm">
@@ -39,22 +39,26 @@ import { ShieldCheck, Zap, Droplets, ChevronRight } from '@lucide/astro';
       <!-- Feature Cards Grid (Glassmorphism) -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         
-        <!-- Card 1 -->
+        <!-- Card 1: Agua Potable -->
         <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all group">
-          <div class="w-12 h-12 rounded-xl bg-accent-orange/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <Zap class="w-6 h-6 text-accent-orange" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Redes Eléctricas</h3>
-          <p class="text-slate-400 text-sm">Diagnóstico, tableros y recableado bajo norma SEC.</p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all group sm:translate-y-8">
           <div class="w-12 h-12 rounded-xl bg-accent-cyan/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
             <Droplets class="w-6 h-6 text-accent-cyan" />
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Sanitarias</h3>
-          <p class="text-slate-400 text-sm">Redes de agua, desagües y grifería de alta presión.</p>
+          <h3 class="text-xl font-bold text-white mb-2">Agua Potable & Presión</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Redes en PPR, PEX y cobre. Bombas hidroneumáticas, estanques de reserva y válvulas de corte.
+          </p>
+        </div>
+
+        <!-- Card 2: Detección Sin Destrucción -->
+        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all group sm:translate-y-8">
+          <div class="w-12 h-12 rounded-xl bg-accent-orange/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <Search class="w-6 h-6 text-accent-orange" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Diagnóstico Sin Romper</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Detección de fugas no visibles con cámaras de inspección, termografía y geófonos sin destruir muros ni pisos.
+          </p>
         </div>
         
       </div>

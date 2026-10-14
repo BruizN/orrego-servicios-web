@@ -1,0 +1,72 @@
+---
+import { Search, ShieldCheck, Sparkles, FileText } from '@lucide/astro';
+
+const pilares = [
+  {
+    icon: Search,
+    title: '1. Diagnóstico Sin Destrucción',
+    desc: 'Tecnología de precisión (cámaras endoscópicas, geófono y termografía) para localizar exactamente la fuga o atasco antes de romper cualquier muro o piso.',
+    badge: 'Tecnología no invasiva'
+  },
+  {
+    icon: ShieldCheck,
+    title: '2. Garantía por Escrito',
+    desc: 'Respaldamos la calidad de cada intervención. Si una falla reparada reaparece durante el periodo de garantía, acudimos de inmediato sin costos sorpresa.',
+    badge: 'Respaldo formal'
+  },
+  {
+    icon: Sparkles,
+    title: '3. Protocolo de Trabajo Pulcro',
+    desc: 'Cuidamos tu propiedad como propia: protección de superficies y pisos, indumentaria técnica adecuada y entrega de la zona de trabajo totalmente limpia.',
+    badge: 'Limpieza absoluta'
+  },
+  {
+    icon: FileText,
+    title: '4. Presupuestos Transparentes',
+    desc: 'Cotizaciones claras y desglosadas por escrito antes de iniciar faenas. Sin cobros imprevistos ni costos ocultos al finalizar el trabajo.',
+    badge: 'Precios claros'
+  }
+];
+---
+
+<section id="pilares" class="py-24 bg-dark-900/60 relative border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-orange/10 border border-accent-orange/20 text-accent-orange text-xs font-semibold uppercase tracking-wider mb-4">
+        Diferenciador Clave
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+        Nuestros 4 Pilares Innegociables
+      </h2>
+      <p class="text-slate-400 text-base sm:text-lg">
+        Rompemos con la informalidad y la incertidumbre del rubro a través de estándares profesionales de ingeniería.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {pilares.map((pilar) => {
+        const IconComponent = pilar.icon;
+        return (
+          <div class="p-6 rounded-2xl bg-dark-950/70 border border-white/10 backdrop-blur-md hover:border-accent-cyan/40 hover:-translate-y-1 transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-5 group-hover:border-accent-cyan/30 group-hover:bg-accent-cyan/10 transition-colors">
+                <IconComponent class="w-6 h-6 text-accent-cyan" />
+              </div>
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-accent-orange block mb-2">
+                {pilar.badge}
+              </span>
+              <h3 class="text-lg font-bold text-white mb-3 tracking-tight">
+                {pilar.title}
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                {pilar.desc}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>

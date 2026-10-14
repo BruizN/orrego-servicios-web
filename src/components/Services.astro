@@ -1,0 +1,118 @@
+---
+import { Droplets, Wrench, Search, Building2, CheckCircle, ArrowRight } from '@lucide/astro';
+
+const services = [
+  {
+    icon: Droplets,
+    color: 'text-accent-cyan',
+    bgColor: 'bg-accent-cyan/10',
+    borderColor: 'border-accent-cyan/20',
+    title: 'Redes de Agua Potable y Presión',
+    desc: 'Suministro técnico a presión para viviendas y edificios comerciales.',
+    items: [
+      'Instalación y recambio en PPR termofusión, PEX y Cobre',
+      'Montaje de estanques de reserva y bombas hidroneumáticas',
+      'Cambio de llaves de paso, válvulas de corte y griferías de alta presión',
+      'Pruebas hidrostáticas de presión para obras nuevas'
+    ]
+  },
+  {
+    icon: Search,
+    color: 'text-accent-orange',
+    bgColor: 'bg-accent-orange/10',
+    borderColor: 'border-accent-orange/20',
+    title: 'Diagnóstico y Detección de Fugas',
+    desc: 'Tecnología no invasiva para ubicar filtraciones sin destruir tu propiedad.',
+    items: [
+      'Detección de fugas no visibles (geófono y termografía)',
+      'Inspección endoscópica con cámara en ductos y desagües',
+      'Auditorías de consumo para detectar pérdidas ocultas de agua',
+      'Localización exacta de averías antes de cualquier intervención'
+    ]
+  },
+  {
+    icon: Wrench,
+    color: 'text-accent-cyan',
+    bgColor: 'bg-accent-cyan/10',
+    borderColor: 'border-accent-cyan/20',
+    title: 'Alcantarillado y Evacuación',
+    desc: 'Redes de evacuación sanitaria por gravedad con pendientes normalizadas.',
+    items: [
+      'Destape y limpieza técnica con máquina electromecánica y sondas',
+      'Reparación y tendido de tuberías de desagüe y ventilación (vent stack)',
+      'Instalación y mantención de trampas de grasa para restaurantes',
+      'Conexión de fosas sépticas y colectores sanitarios'
+    ]
+  },
+  {
+    icon: Building2,
+    color: 'text-accent-orange',
+    bgColor: 'bg-accent-orange/10',
+    borderColor: 'border-accent-orange/20',
+    title: 'Soluciones B2B & Comunidades',
+    desc: 'Planes preventivos y respuesta técnica prioritaria para administraciones.',
+    items: [
+      'Inspección periódica de salas de bombas y estanques',
+      'Contratos de mantención para condominios y locales gastronómicos',
+      'Emisión formal de facturas exentas y afectas',
+      'Atención técnica prioritaria ante emergencias operacionales'
+    ]
+  }
+];
+---
+
+<section id="servicios" class="py-24 bg-dark-950 relative border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan text-xs font-semibold uppercase tracking-wider mb-4">
+        Especialización Técnica
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+        Servicios Profesionales de Ingeniería Sanitaria
+      </h2>
+      <p class="text-slate-400 text-base sm:text-lg">
+        Superamos la gasfitería tradicional con diagnósticos instrumentados, materiales certificados de alta durabilidad y ejecución con rigor técnico.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {services.map((svc) => {
+        const IconComponent = svc.icon;
+        return (
+          <div class="p-8 rounded-2xl bg-dark-800/80 border border-white/10 backdrop-blur-md hover:border-white/20 transition-all group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-4 mb-5">
+                <div class={`w-14 h-14 rounded-xl ${svc.bgColor} ${svc.borderColor} border flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                  <IconComponent class={`w-7 h-7 ${svc.color}`} />
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-white tracking-tight">{svc.title}</h3>
+                  <p class="text-slate-400 text-sm mt-1">{svc.desc}</p>
+                </div>
+              </div>
+
+              <ul class="space-y-3 pt-2 mb-6 border-t border-white/5">
+                {svc.items.map((item) => (
+                  <li class="flex items-start gap-3 text-slate-300 text-sm">
+                    <CheckCircle class="w-4 h-4 text-accent-cyan flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a 
+              href="#cotizar" 
+              class="inline-flex items-center gap-2 text-sm font-semibold text-accent-cyan hover:text-white transition-colors group-hover:translate-x-1 duration-200"
+            >
+              <span>Consultar por este servicio</span>
+              <ArrowRight class="w-4 h-4" />
+            </a>
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>

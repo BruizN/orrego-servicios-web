@@ -2,13 +2,21 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import ValueProps from '../components/ValueProps.astro';
+import B2BSection from '../components/B2BSection.astro';
 import QuoteForm from '../components/QuoteForm.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
 	<Header />
 	<main>
 		<Hero />
+		<Services />
+		<ValueProps />
+		<B2BSection />
 		<QuoteForm />
 	</main>
+	<Footer />
 </Layout>

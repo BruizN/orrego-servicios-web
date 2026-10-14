@@ -1,0 +1,85 @@
+---
+import { Droplet, Phone, MessageSquare, ShieldCheck, MapPin } from '@lucide/astro';
+---
+
+<footer class="bg-dark-950 border-t border-white/10 pt-16 pb-12 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+      
+      <!-- Columna 1: Marca -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="bg-accent-orange p-2.5 rounded-xl shadow-[0_0_15px_rgba(255,87,34,0.3)]">
+            <Droplet class="w-6 h-6 text-white" />
+          </div>
+          <div>
+            <span class="text-2xl font-black tracking-tight text-white leading-none">
+              KoFix<span class="text-accent-cyan">Red</span>
+            </span>
+            <p class="text-[11px] text-slate-400 font-semibold tracking-wider uppercase mt-1">
+              Ingeniería Sanitaria
+            </p>
+          </div>
+        </div>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Ingeniería en agua potable y soluciones sanitarias. Diagnóstico preciso sin romper, garantía por escrito y servicio pulcro.
+        </p>
+      </div>
+
+      <!-- Columna 2: Navegación -->
+      <div>
+        <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">Navegación</h4>
+        <ul class="space-y-2.5 text-sm text-slate-400">
+          <li><a href="#servicios" class="hover:text-accent-cyan transition-colors">Servicios Técnicos</a></li>
+          <li><a href="#pilares" class="hover:text-accent-cyan transition-colors">Nuestros 4 Pilares</a></li>
+          <li><a href="#b2b" class="hover:text-accent-cyan transition-colors">Empresas & Condominios</a></li>
+          <li><a href="#cotizar" class="hover:text-accent-cyan transition-colors">Solicitar Cotización</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Cobertura y Contacto -->
+      <div>
+        <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">Cobertura & Atención</h4>
+        <ul class="space-y-3 text-sm text-slate-400">
+          <li class="flex items-start gap-2.5">
+            <MapPin class="w-4 h-4 text-accent-cyan flex-shrink-0 mt-0.5" />
+            <span>Región Metropolitana (Todas las comunas)</span>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <Phone class="w-4 h-4 text-accent-orange flex-shrink-0" />
+            <span>+56 9 4908 6102</span>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <MessageSquare class="w-4 h-4 text-accent-cyan flex-shrink-0" />
+            <span>Atención vía WhatsApp</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Garantía y Respaldo -->
+      <div>
+        <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">Respaldo Técnico</h4>
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2">
+          <div class="flex items-center gap-2 text-accent-cyan text-sm font-semibold">
+            <ShieldCheck class="w-4 h-4" />
+            <span>Garantía por Escrito</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Facturación electrónica B2B. Todo trabajo cuenta con respaldo formal y entrega de informe si se requiere.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Disclaimer y Copyright -->
+    <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+      <p>
+        © {new Date().getFullYear()} KoFixRed. Todos los derechos reservados.
+      </p>
+      <p class="max-w-xl text-center md:text-right text-slate-500">
+        * KoFixRed se especializa exclusivamente en agua potable, alcantarillado e ingeniería sanitaria. No realizamos servicios eléctricos ni reparación de calefonts/gas de alta presión.
+      </p>
+    </div>
+  </div>
+</footer>
