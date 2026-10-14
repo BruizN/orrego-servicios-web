@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { ShieldCheck, ArrowLeft, FileText } from '@lucide/astro';
+---
+
+<Layout>
+  <Header />
+  
+  <main class="pt-32 pb-24 bg-dark-950 text-slate-300 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-10">
+        <a href="/" class="inline-flex items-center gap-2 text-sm text-accent-cyan hover:text-white transition-colors mb-6">
+          <ArrowLeft class="w-4 h-4" />
+          <span>Volver al inicio</span>
+        </a>
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan text-xs font-semibold uppercase tracking-wider mb-3">
+          <ShieldCheck class="w-4 h-4" />
+          <span>Marco Legal Vigente en Chile</span>
+        </div>
+        
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
+          Términos y Condiciones del Servicio
+        </h1>
+        <p class="text-slate-400 text-sm">
+          Última actualización: Octubre de 2026. Regulado conforme a la Ley N° 19.496 sobre Protección de los Derechos de los Consumidores y normativa sanitaria de la República de Chile.
+        </p>
+      </div>
+
+      <div class="space-y-8 text-sm sm:text-base leading-relaxed bg-dark-850/40 border border-white/10 rounded-2xl p-6 sm:p-10 backdrop-blur-md">
+        
+        <!-- Sección 1 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-orange">1.</span> Identificación del Prestador
+          </h2>
+          <p>
+            Los presentes Términos y Condiciones regulan la prestación de servicios técnicos, sanitarios e hidráulicos ofrecidos bajo la marca <strong>KoFixRed</strong>, servicio técnico profesional operado directamente por <strong>Claudio Orrego</strong>, Ingeniero en Construcción, con cobertura principal en la Región Metropolitana de Santiago de Chile.
+          </p>
+          <p>
+            Canales oficiales de atención: formulario web oficial, mensajería WhatsApp autorizada (+56 9 4908 6102) y correo de coordinación técnica.
+          </p>
+        </section>
+
+        <!-- Sección 2 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-orange">2.</span> Alcance del Servicio y Especialidad Técnica
+          </h2>
+          <p>
+            KoFixRed provee servicios técnicos especializados en:
+          </p>
+          <ul class="list-disc list-inside space-y-1.5 pl-2 text-slate-300">
+            <li>Redes de distribución de agua potable a presión (PPR termofusión, PEX, Cobre y PVC hidráulico).</li>
+            <li>Montaje, diagnóstico y mantención de bombas de agua y sistemas hidroneumáticos.</li>
+            <li>Detección no invasiva de fugas de agua no visibles mediante instrumental técnico (geófono, cámara termográfica, cámara de inspección de ductos).</li>
+            <li>Redes de alcantarillado, desagües, descargas, ventilaciones y destapes técnicos electromecánicos.</li>
+            <li>Planes de mantención sanitaria preventiva para comunidades, condominios y locales comerciales (B2B).</li>
+          </ul>
+        </section>
+
+        <!-- Sección 3 -->
+        <section class="space-y-3 p-5 rounded-xl bg-accent-red/10 border border-accent-red/20 text-slate-200">
+          <h2 class="text-xl font-bold text-accent-red flex items-center gap-2">
+            <span>3.</span> Exclusiones Expresas y Delimitación de Seguridad (SEC y Electricidad)
+          </h2>
+          <p class="font-medium">
+            Por estrictas razones de seguridad, competencia y cumplimiento regulatorio:
+          </p>
+          <ul class="list-disc list-inside space-y-2 pl-2">
+            <li><strong>Exclusión Total de Redes Eléctricas:</strong> KoFixRed NO interviene instalaciones eléctricas, cableados domiciliarios, automáticos ni tableros generales.</li>
+            <li><strong>Exclusión de Calefonts y Gas de Alta Presión:</strong> No se realizan mantenciones ni reparaciones de artefactos calefont ni tuberías de gas matriz. Para dichos trabajos, el cliente debe recurrir a un instalador con certificación expresa de la Superintendencia de Electricidad y Combustibles (SEC).</li>
+          </ul>
+        </section>
+
+        <!-- Sección 4 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-orange">4.</span> Visitas de Diagnóstico, Cotización y Aceptación
+          </h2>
+          <p>
+            Antes de iniciar faenas de reparación o recambio mayor, el cliente recibirá una cotización clara y por escrito (o vía mensaje digital verificable), detallando:
+          </p>
+          <ul class="list-disc list-inside space-y-1.5 pl-2 text-slate-300">
+            <li>Diagnóstico inicial de la falla y metodología técnica recomendada.</li>
+            <li>Costo de mano de obra y especificación de materiales a emplear.</li>
+            <li>En caso de cobro por visita de diagnóstico o inspección con instrumental tecnológico (cámaras o geófono), este valor siempre será informado y acordado con anterioridad a la concurrencia a terreno.</li>
+          </ul>
+          <p>
+            Ningún trabajo mayor se ejecutará sin el consentimiento y aprobación previa expresa por parte del cliente o administrador facultado.
+          </p>
+        </section>
+
+        <!-- Sección 5 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-orange">5.</span> Política de Garantía (Ley N° 19.496, Art. 41)
+          </h2>
+          <p>
+            De conformidad con el <strong>Artículo 41 de la Ley N° 19.496 de Protección de los Derechos de los Consumidores</strong>:
+          </p>
+          <ul class="list-disc list-inside space-y-2 pl-2 text-slate-300">
+            <li>Toda reparación cuenta con una <strong>garantía legal de 30 días hábiles</strong> a partir del término del servicio.</li>
+            <li>KoFixRed otorga adicionalmente una <strong>garantía técnica extendida voluntaria por escrito</strong> de hasta 90 días en instalaciones nuevas y cambios de cañería en PPR/PEX según se especifique en la respectiva cotización.</li>
+            <li>Si el desperfecto atribuible a la reparación subsiste o reaparece durante la vigencia de la garantía, el cliente tiene derecho a la re-ejecución del servicio sin costo adicional.</li>
+            <li><strong>Límites de la garantía:</strong> La garantía ampara exclusivamente las zonas y uniones efectivamente intervenidas. Quedan excluidos los daños ocasionados por manipulación posterior de terceros, sobrepresiones anómalas de la red pública, cortes masivos de suministro o eventos de fuerza mayor.</li>
+          </ul>
+        </section>
+
+        <!-- Sección 6 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-orange">6.</span> Calidad de Materiales y Repuestos (Ley N° 19.496, Art. 40)
+          </h2>
+          <p>
+            En cumplimiento del Artículo 40 de la Ley N° 19.496, en todas las instalaciones y reemplazos se emplearán exclusivamente <strong>materiales nuevos, normalizados y con certificación vigente</strong> bajo las Normas Chilenas (NCh) para conducciones de agua potable y desagües sanitarios. No se utilizarán piezas refaccionadas ni recicladas salvo solicitud expresa y justificada del cliente.
+          </p>
+        </section>
+
+        <!-- Sección 7 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-orange">7.</span> Vicios Ocultos e Instalaciones Preexistentes
+          </h2>
+          <p>
+            En construcciones con tuberías antiguas de plomo, fierro galvanizado con severa corrosión interna o redes no normalizadas ejecutadas informalmente con anterioridad, existe riesgo inherente de desprendimiento o fatiga de material preexistente.
+          </p>
+          <p>
+            El técnico informará oportunamente al cliente cuando detecte condiciones de riesgo estructural preexistentes en la red del inmueble, deslindando responsabilidad por fallas derivadas del deterioro previo de componentes ajenos al punto de intervención.
+          </p>
+        </section>
+
+        <!-- Sección 8 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-orange">8.</span> Facturación y Medios de Pago
+          </h2>
+          <p>
+            Los pagos se efectúan una vez concluido el servicio o según hitos pactados en proyectos de envergadura. Se emite boleta electrónica para clientes particulares o factura electrónica para personas jurídicas y comités de administración de condominios conforme a la normativa tributaria del Servicio de Impuestos Internos (SII).
+          </p>
+        </section>
+
+        <!-- Sección 9 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-orange">9.</span> Jurisdicción y Resolución de Controversias
+          </h2>
+          <p>
+            Cualquier desavenencia o reclamo será canalizado de buena fe a través de los canales de atención directa del prestador. En su defecto, las partes se someten a la competencia de los Juzgados de Policía Local correspondientes conforme a la Ley N° 19.496, y a los tribunales ordinarios de justicia de la ciudad de Santiago de Chile.
+          </p>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

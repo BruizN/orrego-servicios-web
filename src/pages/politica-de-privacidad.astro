@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Lock, ArrowLeft, CheckCircle } from '@lucide/astro';
+---
+
+<Layout>
+  <Header />
+  
+  <main class="pt-32 pb-24 bg-dark-950 text-slate-300 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-10">
+        <a href="/" class="inline-flex items-center gap-2 text-sm text-accent-cyan hover:text-white transition-colors mb-6">
+          <ArrowLeft class="w-4 h-4" />
+          <span>Volver al inicio</span>
+        </a>
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan text-xs font-semibold uppercase tracking-wider mb-3">
+          <Lock class="w-4 h-4" />
+          <span>Ley N° 19.628 de Protección de Datos Personales</span>
+        </div>
+        
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
+          Política de Privacidad y Tratamiento de Datos
+        </h1>
+        <p class="text-slate-400 text-sm">
+          Última actualización: Octubre de 2026. En estricto apego a la Ley N° 19.628 sobre Protección de la Vida Privada de la República de Chile.
+        </p>
+      </div>
+
+      <div class="space-y-8 text-sm sm:text-base leading-relaxed bg-dark-850/40 border border-white/10 rounded-2xl p-6 sm:p-10 backdrop-blur-md">
+        
+        <!-- Sección 1 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-cyan">1.</span> Responsable del Tratamiento
+          </h2>
+          <p>
+            El responsable del tratamiento de los datos personales recabados a través de este sitio web es <strong>Claudio Orrego</strong>, operando bajo la denominación comercial de servicios técnicos <strong>KoFixRed</strong>, domiciliado en la Región Metropolitana de Santiago de Chile.
+          </p>
+          <p>
+            Contacto directo para materias de privacidad y ejercicio de derechos ARCO: <span class="text-white font-medium">+56 9 4908 6102</span>.
+          </p>
+        </section>
+
+        <!-- Sección 2 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-cyan">2.</span> Datos que Recopilamos y Finalidad Exclusiva
+          </h2>
+          <p>
+            En KoFixRed recabamos exclusivamente los datos necesarios y pertinentes para gestionar solicitudes técnicas solicitadas voluntariamente por el usuario:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2">
+              <h3 class="text-white font-semibold text-sm">Personas Particulares (B2C)</h3>
+              <ul class="text-xs text-slate-400 space-y-1 list-disc list-inside">
+                <li>Nombre de contacto.</li>
+                <li>Teléfono celular (+56 9) para coordinación directa.</li>
+                <li>Comuna y dirección para concurrencia a terreno.</li>
+                <li>Descripción del desperfecto sanitario o hidráulico.</li>
+              </ul>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2">
+              <h3 class="text-white font-semibold text-sm">Empresas y Condominios (B2B)</h3>
+              <ul class="text-xs text-slate-400 space-y-1 list-disc list-inside">
+                <li>Razón Social y RUT de la persona jurídica o comité.</li>
+                <li>Giro comercial y requerimiento de factura.</li>
+                <li>Nombre y contacto del administrador o encargado.</li>
+                <li>Comuna e información técnica de las instalaciones.</li>
+              </ul>
+            </div>
+          </div>
+          <p class="pt-2">
+            <strong>Finalidades legítimas:</strong>
+          </p>
+          <ul class="list-disc list-inside space-y-1.5 pl-2 text-slate-300">
+            <li>Contacto directo para evaluación técnica y envío de presupuestos.</li>
+            <li>Coordinación logística para visitas a domicilio o faenas en terreno.</li>
+            <li>Emisión legal de boletas o facturas electrónicas ante el SII.</li>
+            <li>Gestión y respaldo del periodo de garantía técnica post-servicio.</li>
+          </ul>
+        </section>
+
+        <!-- Sección 3 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-cyan">3.</span> Principio de Confidencialidad y No Cesión
+          </h2>
+          <p>
+            Conforme al Artículo 7 de la Ley N° 19.628, los datos personales suministrados tienen carácter estrictamente confidencial.
+          </p>
+          <div class="p-4 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-slate-200">
+            <p class="font-medium text-sm">
+              🛡️ <strong>Compromiso incondicional:</strong> KoFixRed NO vende, NO alquila, NO comercializa ni cede información personal de clientes a terceros, empresas de telemarketing ni plataformas publicitarias bajo ninguna circunstancia.
+            </p>
+          </div>
+        </section>
+
+        <!-- Sección 4 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-cyan">4.</span> Canal de Salida por WhatsApp y Servicios de Terceros
+          </h2>
+          <p>
+            Al pulsar los botones de cotización o urgencia SOS en el sitio web, los datos ingresados son estructurados para iniciar una conversación directa en la aplicación de mensajería WhatsApp (propiedad de Meta Platforms, Inc.).
+          </p>
+          <p>
+            El usuario reconoce que la transmisión de datos a través de WhatsApp queda sujeta adicionalmente a las políticas de seguridad y cifrado de extremo a extremo de dicha plataforma.
+          </p>
+        </section>
+
+        <!-- Sección 5 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-cyan">5.</span> Derechos del Titular (Derechos ARCO)
+          </h2>
+          <p>
+            En cualquier momento, de acuerdo con la Ley N° 19.628, el titular de los datos personales puede ejercer sus derechos de:
+          </p>
+          <ul class="list-disc list-inside space-y-1.5 pl-2 text-slate-300">
+            <li><strong>Acceso:</strong> Conocer qué datos personales suyos constan en nuestros registros de servicio.</li>
+            <li><strong>Rectificación:</strong> Solicitar la actualización o modificación de datos erróneos o inexactos.</li>
+            <li><strong>Cancelación / Eliminación:</strong> Solicitar la eliminación de sus datos una vez finalizada la relación contractual y el periodo legal de garantía tributaria.</li>
+            <li><strong>Oposición:</strong> Negarse al tratamiento de sus datos para fines específicos no esenciales para la ejecución del servicio contratado.</li>
+          </ul>
+          <p>
+            Para ejercer cualquiera de estos derechos, basta con enviar un mensaje indicando su solicitud a través de WhatsApp al <span class="text-white font-medium">+56 9 4908 6102</span>.
+          </p>
+        </section>
+
+        <!-- Sección 6 -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span class="text-accent-cyan">6.</span> Seguridad y Medidas de Resguardo
+          </h2>
+          <p>
+            Se adoptan las medidas técnicas y organizativas razonables para resguardar la seguridad de la información de los clientes, previniendo accesos no autorizados, pérdidas o adulteraciones de datos de contacto y direcciones físicas.
+          </p>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
