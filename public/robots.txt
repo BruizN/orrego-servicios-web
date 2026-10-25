@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap oficial de KoFixRed
+Sitemap: https://kofixred.cl/sitemap-index.xml
