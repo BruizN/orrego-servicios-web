@@ -1,0 +1,110 @@
+---
+import { HelpCircle, ChevronDown, MapPin, CheckCircle2 } from '@lucide/astro';
+
+export const FAQ_ITEMS = [
+  {
+    question: "¿Cómo detectan fugas de agua ocultas sin picar muros ni pisos?",
+    answer: "Utilizo instrumental de diagnóstico no invasivo de alta precisión: geófono electroacústico para escuchar el flujo de agua a presión en cañerías enterradas, cámara termográfica infrarroja para mapear gradientes de humedad en paredes y losas, y cámara endoscópica para inspección interna de ductos. Esto permite intervenir con precisión milimétrica únicamente donde está la rotura, protegiendo tus cerámicas, pisos y muros."
+  },
+  {
+    question: "¿Qué comunas de la Región Metropolitana atienden?",
+    answer: "Cubro todas las comunas del Gran Santiago y alrededores de la RM, con atención frecuente y coordinada en Providencia, Las Condes, Vitacura, Ñuñoa, La Reina, Lo Barnechea, Santiago Centro, San Miguel, Macul, Peñalolén, La Florida, Maipú, Huechuraba, Quilicura, Colina y Chicureo."
+  },
+  {
+    question: "¿Emiten factura electrónica para empresas, locales y condominios?",
+    answer: "Sí, emito factura electrónica formal o boleta exenta/afecta según la normativa del Servicio de Impuestos Internos (SII). Además, entrego informes técnicos de diagnóstico e intervenciones realizadas para respaldo ante comités de administración y aseguradoras."
+  },
+  {
+    question: "¿Qué garantía tienen las reparaciones e instalaciones?",
+    answer: "Todo trabajo cumple con la garantía legal de 30 días hábiles regulada por el Artículo 41 de la Ley N° 19.496 de Protección al Consumidor. Adicionalmente, entrego garantía técnica por escrito de hasta 90 días en recambio de redes a PPR/PEX e instalaciones sanitarias nuevas según se estipule en el presupuesto."
+  },
+  {
+    question: "¿Qué emergencias sanitarias atiende el botón SOS 24/7?",
+    answer: "El servicio de urgencia SOS está diseñado para incidentes críticos que no pueden esperar: roturas intempestivas de cañerías o matrices de agua, inundaciones en viviendas o locales comerciales, rebalses de alcantarillado/cámaras de inspección y fallas en bombas hidroneumáticas de edificios."
+  },
+  {
+    question: "¿Por qué KoFixRed no realiza mantención de calefonts ni gas matriz?",
+    answer: "Por estricto apego a las normas de seguridad de la SEC (Superintendencia de Electricidad y Combustibles). KoFixRed se enfoca 100% en redes de agua potable, bombas hidroneumáticas y alcantarillado. Para trabajos en artefactos de gas de alta presión o calefonts, te recomiendo acudir exclusivamente a instaladores con licencia SEC vigente."
+  }
+];
+
+const COMUNAS_DESTACADAS = [
+  "Providencia", "Las Condes", "Vitacura", "Ñuñoa", "La Reina", "Lo Barnechea",
+  "Santiago Centro", "San Miguel", "Macul", "Peñalolén", "La Florida", "Maipú",
+  "Huechuraba", "Quilicura", "Colina", "Chicureo", "San Bernardo", "Puente Alto"
+];
+---
+
+<section id="faq" class="py-24 bg-dark-900/80 relative border-t border-white/5">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Encabezado de la sección -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan text-xs font-semibold uppercase tracking-wider mb-4">
+        <HelpCircle class="w-4 h-4" />
+        <span>Resolución Técnica de Dudas</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+        Preguntas Frecuentes sobre el Servicio
+      </h2>
+      <p class="text-slate-400 text-base sm:text-lg">
+        Claridad y transparencia antes de agendar. Conoce cómo abordo los diagnósticos, garantías y coberturas en terreno.
+      </p>
+    </div>
+
+    <!-- Acordeón de FAQs con detalles nativos accesibles y estilizados -->
+    <div class="space-y-4 mb-20">
+      {FAQ_ITEMS.map((item, index) => (
+        <details class="group bg-dark-800/70 border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:border-accent-cyan/40 [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center cursor-pointer list-none font-bold text-white text-base sm:text-lg select-none gap-4">
+            <span class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-white/5 text-accent-cyan flex items-center justify-center text-xs font-mono font-bold flex-shrink-0">
+                0{index + 1}
+              </span>
+              <span>{item.question}</span>
+            </span>
+            <ChevronDown class="w-5 h-5 text-accent-cyan transition-transform duration-300 group-open:rotate-180 flex-shrink-0" />
+          </summary>
+          <div class="mt-4 pt-4 border-t border-white/5 text-slate-300 text-sm sm:text-base leading-relaxed pl-10">
+            <p>{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- Bloque Local SEO: Cobertura en Santiago de Chile -->
+    <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-dark-800 to-dark-950 border border-white/10 relative overflow-hidden shadow-2xl">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-6">
+        <div>
+          <div class="flex items-center gap-2 text-accent-orange font-bold text-sm uppercase tracking-wider mb-2">
+            <MapPin class="w-4 h-4" />
+            <span>Cobertura Técnica en Santiago</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white tracking-tight">
+            Atención Domiciliaria y Corporativa en la Región Metropolitana
+          </h3>
+        </div>
+        <a 
+          href="#cotizar" 
+          class="px-6 py-3 rounded-xl bg-accent-cyan text-dark-950 font-bold hover:bg-cyan-400 transition-all text-sm whitespace-nowrap shadow-[0_0_15px_rgba(0,229,255,0.3)]"
+        >
+          Consultar por mi comuna
+        </a>
+      </div>
+
+      <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+        Despliegue rápido con instrumental técnico para atención en hogares, locales comerciales y condominios en las principales zonas de la RM:
+      </p>
+
+      <div class="flex flex-wrap gap-2">
+        {COMUNAS_DESTACADAS.map((comuna) => (
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-medium text-slate-300 hover:border-accent-cyan/40 hover:text-white transition-colors">
+            <CheckCircle2 class="w-3.5 h-3.5 text-accent-cyan" />
+            <span>{comuna}</span>
+          </span>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
