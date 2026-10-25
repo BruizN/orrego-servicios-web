@@ -1,20 +1,169 @@
 ---
 import '../styles/global.css';
 import FloatingSOS from '../components/FloatingSOS.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  jsonLd?: Record<string, any> | Array<Record<string, any>>;
+}
+
+const {
+  title = "KoFixRed | Ingeniería en agua potable y soluciones sanitarias",
+  description = "Servicio técnico profesional de ingeniería sanitaria en Santiago. Detección de fugas no visibles sin romper, redes de agua en PPR y PEX, bombas hidroneumáticas y alcantarillado. Facturación formal y garantía por escrito.",
+  keywords = "gasfiter santiago, deteccion de fugas de agua santiago, filtraciones no visibles, gasfiter providencia, gasfiter las condes, gasfiter ñuñoa, reparacion cañerias ppr, destape alcantarillado con maquina, mantencion bombas de agua condominios, instalacion sanitaria chile, kofixred, claudio orrego",
+  canonical,
+  ogImage = "https://kofixred.cl/og-image.jpg",
+  ogType = "website",
+  jsonLd
+} = Astro.props;
+
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site || "https://kofixred.cl").href;
+
+// Schema.org Structured Data base para Google LocalBusiness / Plumber
+const defaultSchema = {
+  "@context": "https://schema.org",
+  "@type": "Plumber",
+  "@id": "https://kofixred.cl/#business",
+  "name": "KoFixRed - Ingeniería en Agua Potable y Soluciones Sanitarias",
+  "alternateName": "KoFixRed",
+  "url": "https://kofixred.cl",
+  "telephone": "+56949086102",
+  "priceRange": "$$",
+  "image": ogImage,
+  "logo": "https://kofixred.cl/favicon.svg",
+  "description": description,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Santiago",
+    "addressRegion": "Región Metropolitana",
+    "addressCountry": "CL"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -33.4489,
+    "longitude": -70.6693
+  },
+  "areaServed": [
+    "Santiago", "Providencia", "Las Condes", "Vitacura", "Ñuñoa", 
+    "La Reina", "Lo Barnechea", "San Miguel", "Macul", "Peñalolén", 
+    "La Florida", "Maipú", "Cerrillos", "Huechuraba", "Quilicura", "Colina", "Chicureo"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday"],
+      "opens": "09:00",
+      "closes": "14:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59",
+      "description": "Urgencias Sanitarias 24/7 (Inundaciones, rotura de matriz, colapso de alcantarillado)"
+    }
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Claudio Orrego",
+    "jobTitle": "Ingeniero en Construcción y Especialista Sanitario"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios Especializados de Gasfitería e Ingeniería Sanitaria",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Detección Técnica de Fugas No Visibles sin Romper",
+          "description": "Localización precisa de fugas ocultas mediante geófono acústico, termografía infrarroja y cámara endoscópica."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Instalación y Recambio de Redes de Agua Potable en PPR, PEX y Cobre",
+          "description": "Instalación y renovación de matrices de agua potable a presión con termofusión y pruebas hidrostáticas."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Destape Técnico Electromecánico de Alcantarillado y Desagües",
+          "description": "Limpieza y destape de tuberías con máquina electromecánica y sondas sin dañar las cañerías."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Mantención de Salas de Bombas y Estanques de Condominios",
+          "description": "Inspección periódica y mantenimiento preventivo de sistemas hidroneumáticos para comunidades y empresas con facturación formal."
+        }
+      }
+    ]
+  }
+};
 ---
 
 <!doctype html>
 <html lang="es" class="scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>KoFixRed | Ingeniería en agua potable y soluciones sanitarias</title>
-		<meta name="description" content="Servicios de ingeniería e instalaciones sanitarias, redes de agua potable, bombas hidroneumáticas, alcantarillado y detección técnica de fugas en Santiago." />
+    
+    <!-- Metatags Principales de SEO -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Claudio Orrego - KoFixRed" />
+    <meta name="geo.region" content="CL-RM" />
+    <meta name="geo.placename" content="Santiago" />
+
+    <!-- Open Graph / Redes Sociales (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="KoFixRed" />
+    <meta property="og:locale" content="es_CL" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Datos Estructurados Schema.org (JSON-LD) para Google -->
+    <script type="application/ld+json" set:html={JSON.stringify(defaultSchema)} />
+    {jsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
 	</head>
-	<body class="relative">
+	<body class="relative bg-dark-950 text-slate-100">
 		<slot />
 		<FloatingSOS />
 	</body>
